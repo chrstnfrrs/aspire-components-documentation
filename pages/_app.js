@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import { AHeading, ALink, ANav, AText } from 'aspire-components-react';
 
 import '../globals.css';
@@ -19,9 +20,10 @@ const AppNavigation = () => {
 
   return (
     <ANav style={navStyles}>
-      <ALink href={'/'} size={'20'}>
+      <ALink href={'/'} size={'20'} weight={'bold'}>
         Aspire Components
       </ALink>
+      <ALink href={'/docs'}>Documentation</ALink>
     </ANav>
   );
 };
@@ -47,13 +49,15 @@ const AppSideBar = () => {
 
   return (
     <div style={styles}>
-      <AHeading type={'subtitle-1'}>Layout</AHeading>
+      <ALink href={'/docs/layout'}>
+        <AHeading type={'subtitle-1'}>Layout</AHeading>
+      </ALink>
       <ul style={listStyles}>
-        <ALink href={'/a-box'}>ABox</ALink>
-        <ALink href={'/a-container'}>AContainer</ALink>
-        <ALink href={'/a-heading'}>AHeader</ALink>
-        <ALink href={'/a-nav'}>ANav</ALink>
-        <ALink href={'/a-section'}>ASection</ALink>
+        <ALink href={'/docs/layout/a-box'}>ABox</ALink>
+        <ALink href={'/docs/layout/a-container'}>AContainer</ALink>
+        <ALink href={'/docs/layout/a-heading'}>AHeader</ALink>
+        <ALink href={'/docs/layout/a-nav'}>ANav</ALink>
+        <ALink href={'/docs/layout/a-section'}>ASection</ALink>
       </ul>
       <AHeading type={'subtitle-1'}>Text</AHeading>
       <ul>
@@ -87,12 +91,15 @@ const App = ({ Component, pageProps }) => {
     width: '100%',
     padding: '32px',
   };
+  const router = useRouter();
+
+  const isDocsPage = router.route.includes('docs');
 
   return (
     <>
       <AppNavigation />
       <div style={{ display: 'flex' }}>
-        <AppSideBar />
+        {isDocsPage && <AppSideBar />}
         <div style={bodyStyles}>
           <Component {...pageProps} />
         </div>

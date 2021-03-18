@@ -6,9 +6,6 @@ import { AHeading, ALink, ANav, ABox, ASection } from 'aspire-components-react';
 import '../globals.css';
 
 const theme = {
-  text: {
-    primary: '#101010',
-  },
   background: {
     tertiary: '#EAECEF',
   },
@@ -31,22 +28,22 @@ const AppNavigation = () => {
 
 const AppSideBar = () => {
   const styles = {
-    position: 'relative',
+    border: `1px solid ${theme.background.tertiary}`,
     display: 'flex',
     flexDirection: 'column',
-    width: '256px',
-    minWidth: '256px',
-    maxWidth: '256px',
-    border: `1px solid ${theme.background.tertiary}`,
     height: '100%',
+    maxWidth: '256px',
+    minWidth: '256px',
     padding: '32px',
+    position: 'relative',
+    width: '256px',
   };
 
   const listStyles = {
+    background: '#fff',
     display: 'flex',
     flexDirection: 'column',
     wordWrap: 'break-word',
-    background: '#fff',
   };
 
   const linkHeading = {
@@ -90,12 +87,11 @@ const AppSideBar = () => {
   );
 };
 
-// eslint-disable-next-line react/prop-types
 const App = ({ Component, pageProps }) => {
   const bodyStyles = {
     border: `1px solid ${theme.background.tertiary}`,
-    width: '100%',
     padding: '32px',
+    width: '100%',
   };
   const router = useRouter();
 

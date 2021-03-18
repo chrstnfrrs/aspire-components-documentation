@@ -1,19 +1,18 @@
 module.exports = {
   extends: [
-    'plugin:react/recommended',
+    'get-off-my-lawn',
+    'plugin:@typescript-eslint/recommended', // Use recommended rules from @typescript-eslint/eslint-plugin
     'plugin:prettier/recommended', // Enables eslint-plugin-prettier and eslint-config-prettier. MUST ALWAYS BE LAST.
   ],
+  parser: '@typescript-eslint/parser', // Use TS Parser
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true, // Allows for the parsing of JSX
-    },
     ecmaVersion: 2020, // Allow modern ECMAScript
     sourceType: 'module', // Allow imports
   },
   rules: {
-    // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
-    'node/no-unpublished-import': 'off',
-    'react/react-in-jsx-scope': 'off',
+    'eslint-comments/no-unlimited-disable': 'off',
+    'no-use-before-define': 'off', // React imports have an error to due version mismatches in packages
+    'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.jsx'] }], // Allow JSX is TSX Files
     'unicorn/no-abusive-eslint-disable': 'off',
   },
   settings: {

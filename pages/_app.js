@@ -21,10 +21,10 @@ const AppNavigation = () => {
 
   return (
     <ANav style={navStyles}>
-      <ALink href={'/'} size={'20'} weight={'bold'}>
-        Aspire Components
+      <ALink href="/" size="20" weight="bold">
+        {'Aspire Components'}
       </ALink>
-      <ALink href={'/docs'}>Documentation</ALink>
+      <ALink href="/docs">{'Documentation'}</ALink>
     </ANav>
   );
 };
@@ -56,35 +56,35 @@ const AppSideBar = () => {
   return (
     <div style={styles}>
       <ASection style={listStyles}>
-        <ALink style={linkHeading} href={'/docs/layout'}>
-          <AHeading type={'h6'}>Layout</AHeading>
+        <ALink href="/docs/layout" style={linkHeading}>
+          <AHeading type="h6">{'Layout'}</AHeading>
         </ALink>
-        <ALink href={'/docs/layout/a-box'}>ABox</ALink>
-        <ALink href={'/docs/layout/a-container'}>AContainer</ALink>
-        <ALink href={'/docs/layout/a-heading'}>AHeader</ALink>
-        <ALink href={'/docs/layout/a-nav'}>ANav</ALink>
-        <ALink href={'/docs/layout/a-section'}>ASection</ALink>
+        <ALink href="/docs/layout/a-box">{'ABox'}</ALink>
+        <ALink href="/docs/layout/a-container">{'AContainer'}</ALink>
+        <ALink href="/docs/layout/a-heading">{'AHeader'}</ALink>
+        <ALink href="/docs/layout/a-nav">{'ANav'}</ALink>
+        <ALink href="/docs/layout/a-section">{'ASection'}</ALink>
       </ASection>
       <ASection style={listStyles}>
-        <AHeading type={'h6'}>Text</AHeading>
-        <ALink href={'/a-link'}>ALink</ALink>
-        <ALink href={'/a-text'}>AText</ALink>
+        <AHeading type="h6">{'Text'}</AHeading>
+        <ALink href="/a-link">{'ALink'}</ALink>
+        <ALink href="/a-text">{'AText'}</ALink>
       </ASection>
       <ASection style={listStyles}>
-        <AHeading type={'h6'}>Forms</AHeading>
-        <ALink href={'/a-input'}>AInput</ALink>
+        <AHeading type="h6">{'Forms'}</AHeading>
+        <ALink href="/a-input">{'AInput'}</ALink>
       </ASection>
       <ASection style={listStyles}>
-        <AHeading type={'h6'}>Basics</AHeading>
-        <ALink href={'/a-btn'}>ABtn</ALink>
+        <AHeading type="h6">{'Basics'}</AHeading>
+        <ALink href="/a-btn">{'ABtn'}</ALink>
       </ASection>
       <ASection style={listStyles}>
-        <AHeading type={'h6'}>Blocks</AHeading>
-        <ALink href={'/a-hero'}>AHero</ALink>
+        <AHeading type="h6">{'Blocks'}</AHeading>
+        <ALink href="/a-hero">{'AHero'}</ALink>
       </ASection>
       <ASection style={listStyles}>
-        <AHeading type={'h6'}>Functions</AHeading>
-        <ALink href={'/theming'}>Theming</ALink>
+        <AHeading type="h6">{'Functions'}</AHeading>
+        <ALink href="/theming">{'Theming'}</ALink>
       </ASection>
     </div>
   );
@@ -104,12 +104,12 @@ const App = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        <title>Aspire Components</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <title>{'Aspire Components'}</title>
+        <meta content="initial-scale=1.0, width=device-width" name="viewport" />
         <meta
-          name="description"
           content="This is an example of a meta description. 
           This will often show up in search results."
+          name="description"
         />
       </Head>
       <AppNavigation />

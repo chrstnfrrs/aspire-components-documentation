@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { AHeading, ALink, ANav, AText } from 'aspire-components-react';
+import Head from 'next/head';
+import { AHeading, ALink, ANav, ABox, ASection } from 'aspire-components-react';
 
 import '../globals.css';
 
@@ -45,41 +46,46 @@ const AppSideBar = () => {
     display: 'flex',
     flexDirection: 'column',
     wordWrap: 'break-word',
+    background: '#fff',
+  };
+
+  const linkHeading = {
+    padding: '0.875rem 0',
   };
 
   return (
     <div style={styles}>
-      <ALink href={'/docs/layout'}>
-        <AHeading type={'subtitle-1'}>Layout</AHeading>
-      </ALink>
-      <ul style={listStyles}>
+      <ASection style={listStyles}>
+        <ALink style={linkHeading} href={'/docs/layout'}>
+          <AHeading type={'h6'}>Layout</AHeading>
+        </ALink>
         <ALink href={'/docs/layout/a-box'}>ABox</ALink>
         <ALink href={'/docs/layout/a-container'}>AContainer</ALink>
         <ALink href={'/docs/layout/a-heading'}>AHeader</ALink>
         <ALink href={'/docs/layout/a-nav'}>ANav</ALink>
         <ALink href={'/docs/layout/a-section'}>ASection</ALink>
-      </ul>
-      <AHeading type={'subtitle-1'}>Text</AHeading>
-      <ul>
+      </ASection>
+      <ASection style={listStyles}>
+        <AHeading type={'h6'}>Text</AHeading>
         <ALink href={'/a-link'}>ALink</ALink>
         <ALink href={'/a-text'}>AText</ALink>
-      </ul>
-      <AHeading type={'subtitle-1'}>Forms</AHeading>
-      <ul>
+      </ASection>
+      <ASection style={listStyles}>
+        <AHeading type={'h6'}>Forms</AHeading>
         <ALink href={'/a-input'}>AInput</ALink>
-      </ul>
-      <AHeading type={'subtitle-1'}>Basics</AHeading>
-      <ul>
+      </ASection>
+      <ASection style={listStyles}>
+        <AHeading type={'h6'}>Basics</AHeading>
         <ALink href={'/a-btn'}>ABtn</ALink>
-      </ul>
-      <AHeading type={'subtitle-1'}>Blocks</AHeading>
-      <ul>
+      </ASection>
+      <ASection style={listStyles}>
+        <AHeading type={'h6'}>Blocks</AHeading>
         <ALink href={'/a-hero'}>AHero</ALink>
-      </ul>
-      <AHeading type={'subtitle-1'}>Functions</AHeading>
-      <ul>
+      </ASection>
+      <ASection style={listStyles}>
+        <AHeading type={'h6'}>Functions</AHeading>
         <ALink href={'/theming'}>Theming</ALink>
-      </ul>
+      </ASection>
     </div>
   );
 };
@@ -97,12 +103,21 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <>
+      <Head>
+        <title>Aspire Components</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="description"
+          content="This is an example of a meta description. 
+          This will often show up in search results."
+        />
+      </Head>
       <AppNavigation />
       <div style={{ display: 'flex' }}>
         {isDocsPage && <AppSideBar />}
-        <div style={bodyStyles}>
+        <main style={bodyStyles}>
           <Component {...pageProps} />
-        </div>
+        </main>
       </div>
     </>
   );

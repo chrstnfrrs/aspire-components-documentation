@@ -1,0 +1,6 @@
+query allComponent {
+  allComponent {
+    name
+    category
+  }
+}

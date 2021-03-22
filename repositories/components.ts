@@ -1,17 +1,12 @@
-import { ApolloClient, NormalizedCacheObject, gql } from '@apollo/client';
+import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
+
+import { AllComponentDocument } from '../graphql/generated';
 
 export const getComponentsForSidebar = async (
   client: ApolloClient<NormalizedCacheObject>,
 ) => {
   const { data } = await client.query({
-    query: gql`
-      query allComponent {
-        allComponent {
-          name
-          category
-        }
-      }
-    `,
+    query: AllComponentDocument,
     variables: {
       route: '/',
     },

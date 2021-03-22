@@ -7,6 +7,7 @@ import { getGraphqlClient } from '../../../graphql/utils';
 import { getComponentsForSidebar } from '../../../repositories/components';
 
 import { IComponentInfo } from 'types';
+import { convertPascalToKebab } from 'utils/convert-case';
 
 interface IDocsPage {
   components: [IComponentInfo];
@@ -23,17 +24,20 @@ const DocsComponentPage: React.FC<IDocsPage> = (props) => {
   );
 };
 
-const getStaticPaths = () => {
+const getStaticPaths = async () => {
+  const client = getGraphqlClient();
+  const components = await getComponentsForSidebar(client);
+
+  const paths = components.map((component: IComponentInfo) => ({
+    params: {
+      category: component.category,
+      component: convertPascalToKebab(component.name),
+    },
+  }));
+
   return {
     fallback: false, // See the "fallback" section below
-    paths: [
-      {
-        params: {
-          category: 'layout',
-          component: 'a-container',
-        },
-      },
-    ],
+    paths,
   };
 };
 

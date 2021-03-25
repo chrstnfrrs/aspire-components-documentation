@@ -1,13 +1,9 @@
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 export type Maybe<T> = T | null;
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K];
-};
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
-  { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
-  { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -20,6 +16,8 @@ export type Scalars = {
   /** A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   Date: any;
 };
+
+
 
 export type RootQuery = {
   __typename?: 'RootQuery';
@@ -51,57 +49,71 @@ export type RootQuery = {
   allDocument: Array<Document>;
 };
 
+
 export type RootQueryClassArgs = {
   id: Scalars['ID'];
 };
+
 
 export type RootQueryComponentArgs = {
   id: Scalars['ID'];
 };
 
+
 export type RootQueryFunctionArgs = {
   id: Scalars['ID'];
 };
+
 
 export type RootQueryLinkArgs = {
   id: Scalars['ID'];
 };
 
+
 export type RootQueryLinksArgs = {
   id: Scalars['ID'];
 };
+
 
 export type RootQueryLinkOptionsArgs = {
   id: Scalars['ID'];
 };
 
+
 export type RootQueryNavigationArgs = {
   id: Scalars['ID'];
 };
+
 
 export type RootQueryNavigationOptionsArgs = {
   id: Scalars['ID'];
 };
 
+
 export type RootQueryPropArgs = {
   id: Scalars['ID'];
 };
+
 
 export type RootQuerySettingsArgs = {
   id: Scalars['ID'];
 };
 
+
 export type RootQuerySanityImageAssetArgs = {
   id: Scalars['ID'];
 };
+
 
 export type RootQuerySanityFileAssetArgs = {
   id: Scalars['ID'];
 };
 
+
 export type RootQueryDocumentArgs = {
   id: Scalars['ID'];
 };
+
 
 export type RootQueryAllClassArgs = {
   where?: Maybe<ClassFilter>;
@@ -110,12 +122,14 @@ export type RootQueryAllClassArgs = {
   offset?: Maybe<Scalars['Int']>;
 };
 
+
 export type RootQueryAllComponentArgs = {
   where?: Maybe<ComponentFilter>;
   sort?: Maybe<Array<ComponentSorting>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
 };
+
 
 export type RootQueryAllFunctionArgs = {
   where?: Maybe<FunctionFilter>;
@@ -124,12 +138,14 @@ export type RootQueryAllFunctionArgs = {
   offset?: Maybe<Scalars['Int']>;
 };
 
+
 export type RootQueryAllLinkArgs = {
   where?: Maybe<LinkFilter>;
   sort?: Maybe<Array<LinkSorting>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
 };
+
 
 export type RootQueryAllLinksArgs = {
   where?: Maybe<LinksFilter>;
@@ -138,12 +154,14 @@ export type RootQueryAllLinksArgs = {
   offset?: Maybe<Scalars['Int']>;
 };
 
+
 export type RootQueryAllLinkOptionsArgs = {
   where?: Maybe<LinkOptionsFilter>;
   sort?: Maybe<Array<LinkOptionsSorting>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
 };
+
 
 export type RootQueryAllNavigationArgs = {
   where?: Maybe<NavigationFilter>;
@@ -152,12 +170,14 @@ export type RootQueryAllNavigationArgs = {
   offset?: Maybe<Scalars['Int']>;
 };
 
+
 export type RootQueryAllNavigationOptionsArgs = {
   where?: Maybe<NavigationOptionsFilter>;
   sort?: Maybe<Array<NavigationOptionsSorting>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
 };
+
 
 export type RootQueryAllPropArgs = {
   where?: Maybe<PropFilter>;
@@ -166,12 +186,14 @@ export type RootQueryAllPropArgs = {
   offset?: Maybe<Scalars['Int']>;
 };
 
+
 export type RootQueryAllSettingsArgs = {
   where?: Maybe<SettingsFilter>;
   sort?: Maybe<Array<SettingsSorting>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
 };
+
 
 export type RootQueryAllSanityImageAssetArgs = {
   where?: Maybe<SanityImageAssetFilter>;
@@ -180,12 +202,14 @@ export type RootQueryAllSanityImageAssetArgs = {
   offset?: Maybe<Scalars['Int']>;
 };
 
+
 export type RootQueryAllSanityFileAssetArgs = {
   where?: Maybe<SanityFileAssetFilter>;
   sort?: Maybe<Array<SanityFileAssetSorting>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
 };
+
 
 export type RootQueryAllDocumentArgs = {
   where?: Maybe<DocumentFilter>;
@@ -225,6 +249,7 @@ export type Document = {
   /** Current document revision */
   _rev?: Maybe<Scalars['String']>;
 };
+
 
 export type Component = Document & {
   __typename?: 'Component';
@@ -582,7 +607,7 @@ export enum SortOrder {
   /** Sorts on the value in ascending order. */
   Asc = 'ASC',
   /** Sorts on the value in descending order. */
-  Desc = 'DESC',
+  Desc = 'DESC'
 }
 
 export type ComponentFilter = {
@@ -1132,6 +1157,7 @@ export type DateFilter = {
   lte?: Maybe<Scalars['Date']>;
 };
 
+
 export type ImageFilter = {
   _key?: Maybe<StringFilter>;
   _type?: Maybe<StringFilter>;
@@ -1194,67 +1220,126 @@ export type FileSorting = {
   _type?: Maybe<SortOrder>;
 };
 
-export type AllComponentQueryVariables = Exact<{ [key: string]: never }>;
+export type GetComponentQueryVariables = Exact<{
+  name?: Maybe<Scalars['String']>;
+}>;
 
-export type AllComponentQuery = { __typename?: 'RootQuery' } & {
-  allComponent: Array<
-    { __typename?: 'Component' } & Pick<Component, 'name' | 'category'>
-  >;
-};
 
-export const AllComponentDocument = gql`
-  query allComponent {
-    allComponent {
+export type GetComponentQuery = (
+  { __typename?: 'RootQuery' }
+  & { allComponent: Array<(
+    { __typename?: 'Component' }
+    & Pick<Component, '_id' | 'name' | 'category'>
+    & { slug?: Maybe<(
+      { __typename?: 'Slug' }
+      & Pick<Slug, 'current'>
+    )>, props?: Maybe<Array<Maybe<(
+      { __typename?: 'Prop' }
+      & Pick<Prop, 'name'>
+      & { function?: Maybe<Array<Maybe<(
+        { __typename?: 'Function' }
+        & Pick<Function, 'name' | 'type'>
+        & { classes?: Maybe<Array<Maybe<(
+          { __typename?: 'Class' }
+          & Pick<Class, 'name' | 'property' | 'value'>
+        )>>> }
+      )>>> }
+    )>>> }
+  )> }
+);
+
+export type GetComponentsListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetComponentsListQuery = (
+  { __typename?: 'RootQuery' }
+  & { allComponent: Array<(
+    { __typename?: 'Component' }
+    & Pick<Component, 'name' | 'category'>
+  )> }
+);
+
+
+export const GetComponentDocument = gql`
+    query getComponent($name: String) {
+  allComponent(where: {name: {eq: $name}}) {
+    _id
+    name
+    slug {
+      current
+    }
+    category
+    props {
       name
-      category
+      function {
+        name
+        type
+        classes {
+          name
+          property
+          value
+        }
+      }
     }
   }
-`;
+}
+    `;
 
 /**
- * __useAllComponentQuery__
+ * __useGetComponentQuery__
  *
- * To run a query within a React component, call `useAllComponentQuery` and pass it any options that fit your needs.
- * When your component renders, `useAllComponentQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetComponentQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetComponentQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useAllComponentQuery({
+ * const { data, loading, error } = useGetComponentQuery({
+ *   variables: {
+ *      name: // value for 'name'
+ *   },
+ * });
+ */
+export function useGetComponentQuery(baseOptions?: Apollo.QueryHookOptions<GetComponentQuery, GetComponentQueryVariables>) {
+        return Apollo.useQuery<GetComponentQuery, GetComponentQueryVariables>(GetComponentDocument, baseOptions);
+      }
+export function useGetComponentLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetComponentQuery, GetComponentQueryVariables>) {
+          return Apollo.useLazyQuery<GetComponentQuery, GetComponentQueryVariables>(GetComponentDocument, baseOptions);
+        }
+export type GetComponentQueryHookResult = ReturnType<typeof useGetComponentQuery>;
+export type GetComponentLazyQueryHookResult = ReturnType<typeof useGetComponentLazyQuery>;
+export type GetComponentQueryResult = Apollo.QueryResult<GetComponentQuery, GetComponentQueryVariables>;
+export const GetComponentsListDocument = gql`
+    query getComponentsList {
+  allComponent {
+    name
+    category
+  }
+}
+    `;
+
+/**
+ * __useGetComponentsListQuery__
+ *
+ * To run a query within a React component, call `useGetComponentsListQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetComponentsListQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetComponentsListQuery({
  *   variables: {
  *   },
  * });
  */
-export function useAllComponentQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    AllComponentQuery,
-    AllComponentQueryVariables
-  >,
-) {
-  return Apollo.useQuery<AllComponentQuery, AllComponentQueryVariables>(
-    AllComponentDocument,
-    baseOptions,
-  );
-}
-export function useAllComponentLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    AllComponentQuery,
-    AllComponentQueryVariables
-  >,
-) {
-  return Apollo.useLazyQuery<AllComponentQuery, AllComponentQueryVariables>(
-    AllComponentDocument,
-    baseOptions,
-  );
-}
-export type AllComponentQueryHookResult = ReturnType<
-  typeof useAllComponentQuery
->;
-export type AllComponentLazyQueryHookResult = ReturnType<
-  typeof useAllComponentLazyQuery
->;
-export type AllComponentQueryResult = Apollo.QueryResult<
-  AllComponentQuery,
-  AllComponentQueryVariables
->;
+export function useGetComponentsListQuery(baseOptions?: Apollo.QueryHookOptions<GetComponentsListQuery, GetComponentsListQueryVariables>) {
+        return Apollo.useQuery<GetComponentsListQuery, GetComponentsListQueryVariables>(GetComponentsListDocument, baseOptions);
+      }
+export function useGetComponentsListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetComponentsListQuery, GetComponentsListQueryVariables>) {
+          return Apollo.useLazyQuery<GetComponentsListQuery, GetComponentsListQueryVariables>(GetComponentsListDocument, baseOptions);
+        }
+export type GetComponentsListQueryHookResult = ReturnType<typeof useGetComponentsListQuery>;
+export type GetComponentsListLazyQueryHookResult = ReturnType<typeof useGetComponentsListLazyQuery>;
+export type GetComponentsListQueryResult = Apollo.QueryResult<GetComponentsListQuery, GetComponentsListQueryVariables>;

@@ -1,0 +1,22 @@
+query getComponent($name: String){
+  allComponent(where: { name: {eq:$name}}) {
+    _id
+    name
+    slug {
+      current
+    }
+    category
+    props {
+      name
+      function{
+        name
+        type
+        classes {
+          name
+          property
+          value
+        }
+      }
+    }
+  }
+}

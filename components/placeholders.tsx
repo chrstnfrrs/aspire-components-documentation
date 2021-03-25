@@ -26,9 +26,16 @@ const PlaceholderContainer = styled.div`
   padding: 64px 128px;
 `;
 
+const PlaceholderTable = styled.table``;
+const PlaceholderTableRow = styled.tr``;
+const PlaceholderTableHeader = styled.th``;
+const PlaceholderTableItem = styled.td``;
+
 const PlaceholderBox = styled.div`
   display: flex;
 `;
+
+const PlaceholderSection = styled.section``;
 
 const PlaceholderSidebar = styled.nav`
   display: flex;
@@ -42,6 +49,11 @@ export {
   PlaceholderLink,
   PlaceholderH3,
   PlaceholderContainer,
+  PlaceholderTable,
+  PlaceholderTableRow,
+  PlaceholderTableHeader,
+  PlaceholderTableItem,
   PlaceholderBox,
+  PlaceholderSection,
   PlaceholderSidebar,
 };

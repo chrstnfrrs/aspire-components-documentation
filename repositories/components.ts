@@ -1,16 +1,33 @@
 import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 
-import { AllComponentDocument } from '../graphql/generated';
+import { convertKebabToPascal } from '../utils/convert-case';
+import { GetComponentsListDocument, GetComponentDocument } from '../graphql/generated';
 
-export const getComponentsForSidebar = async (
+const getComponentForPage = async (
+  client: ApolloClient<NormalizedCacheObject>,
+  route: string
+) => {
+  const { data } = await client.query({
+    query: GetComponentDocument,
+    variables: {
+      name: convertKebabToPascal(route)
+    }
+  })
+
+  return data.allComponent[0]
+}
+
+const getComponentsForSidebar = async (
   client: ApolloClient<NormalizedCacheObject>,
 ) => {
   const { data } = await client.query({
-    query: AllComponentDocument,
-    variables: {
-      route: '/',
-    },
+    query: GetComponentsListDocument,
   });
 
   return data.allComponent;
 };
+
+export {
+  getComponentForPage,
+  getComponentsForSidebar,
+}

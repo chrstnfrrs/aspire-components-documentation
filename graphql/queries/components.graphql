@@ -1,4 +1,4 @@
-query allComponent {
+query getComponentsList {
   allComponent {
     name
     category
